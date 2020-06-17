@@ -33,7 +33,7 @@ public class ProductController {
 	public ResponseEntity<List<Product>> getAllProducts() {
 		List<Product> products = new ArrayList<>();
 		try {
-			// 데이터베이스의 모든 레코드 조회 각각에 대해 customer에 집어 넣는다
+			// 데이터베이스의 모든 레코드 조회 각각에 대해 products에 집어 넣는다
 			repository.findAll().forEach(products::add);
 
 			if (products.isEmpty()) {
@@ -58,7 +58,7 @@ public class ProductController {
 	}
 
 	// POST Method
-	// request body에서 사용자가 customer에 대한 정보를 넘겨주게 되면 받아서 그걸 바탕으로 객체를 만들어서 repositorySave를 사용해서 저장
+	// request body에서 사용자가 product에 대한 정보를 넘겨주게 되면 받아서 그걸 바탕으로 객체를 만들어서 repositorySave를 사용해서 저장
 	@PostMapping(value = "/products")
 	public ResponseEntity<Product> postCustomer(@RequestBody Product product) {
 		try {
